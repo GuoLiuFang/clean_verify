@@ -5,6 +5,8 @@ import com.tj.beans.ErrorsGrep;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.Properties;
 public class RecordsService {
     private Properties properties;
     private String pathName;
+    private String whichAddressWrong;
 
     public RecordsService() {
         this.properties = new Properties();
@@ -37,6 +40,14 @@ public class RecordsService {
         return pathName;
     }
 
+    public void setWhichAddressWrong(String whichAddressWrong) {
+        this.whichAddressWrong = whichAddressWrong;
+    }
+
+    public String getWhichAddressWrong() {
+        return whichAddressWrong;
+    }
+
     public List<ErrorRecords> getRecords(ResultSet resultSet) {
         List<ErrorRecords> result = new ArrayList();
         try {
@@ -49,17 +60,20 @@ public class RecordsService {
                 errorRecords.setReader(resultSet.getString(this.properties.getProperty("reader")));
                 errorRecords.setWriter(resultSet.getString(this.properties.getProperty("writer")));
                 errorRecords.setShell_code(resultSet.getString(this.properties.getProperty("shell_code")));
-                errorRecords.setPrepare_kernel_cred(resultSet.getString(this.properties.getProperty("prepare_kernel_cred")));
-                errorRecords.setCommit_creds(resultSet.getString(this.properties.getProperty("commit_creds")));
-                errorRecords.setTty_fasync(resultSet.getString(this.properties.getProperty("tty_fasync")));
-                errorRecords.setPtmx_open(resultSet.getString(this.properties.getProperty("ptmx_open")));
-                errorRecords.setTty_init_dev(resultSet.getString(this.properties.getProperty("tty_init_dev")));
-                errorRecords.setTty_release(resultSet.getString(this.properties.getProperty("tty_release")));
-                errorRecords.setPtmx_fops(resultSet.getString(this.properties.getProperty("ptmx_fops")));
+
+                errorRecords.setPrepare_kernel_cred(resultSet.getString(this.properties.getProperty("address_prepare_kernel_cred")));
+                errorRecords.setCommit_creds(resultSet.getString(this.properties.getProperty("address_commit_creds")));
+                errorRecords.setTty_fasync(resultSet.getString(this.properties.getProperty("address_tty_fasync")));
+                errorRecords.setPtmx_open(resultSet.getString(this.properties.getProperty("address_ptmx_open")));
+                errorRecords.setTty_init_dev(resultSet.getString(this.properties.getProperty("address_tty_init_dev")));
+                errorRecords.setTty_release(resultSet.getString(this.properties.getProperty("address_tty_release")));
+                errorRecords.setPtmx_fops(resultSet.getString(this.properties.getProperty("address_ptmx_fops")));
+                errorRecords.setHack_point(resultSet.getString(this.properties.getProperty("address_hack_point")));
+
                 errorRecords.setPtmx_fops_address(resultSet.getString(this.properties.getProperty("ptmx_fops_address")));
                 errorRecords.setHack_code(resultSet.getString(this.properties.getProperty("hack_code")));
                 errorRecords.setSys_setresuid(resultSet.getString(this.properties.getProperty("sys_setresuid")));
-                errorRecords.setHack_point(resultSet.getString(this.properties.getProperty("hack_point")));
+
                 result.add(errorRecords);
                 System.out.println(errorRecords.getString());
             }
@@ -86,7 +100,8 @@ public class RecordsService {
                 result.add(record);
             }
             if (verifyAddress(record)) {
-                record.setError_info(this.properties.getProperty("error_address"));
+                record.setError_info("\"" + getWhichAddressWrong() + this.properties.getProperty("error_address"));
+                setWhichAddressWrong("");
                 result.add(record);
             }
         }
@@ -113,6 +128,28 @@ public class RecordsService {
                 ) {
             return false;
         } else {
+            setWhichAddressWrong("");
+            Method[] methodArray = ErrorRecords.class.getDeclaredMethods();
+            for (String str : this.properties.stringPropertyNames()) {
+                if (str.contains("address")) {
+                    String key = this.properties.getProperty(str);
+                    for (Method m : methodArray) {
+                        if (m.getName().contains("get") && m.getName().contains(key.substring(1))) {
+                            try {
+                                String value = ((String) m.invoke(record));
+                                if (value == null) {
+                                    this.whichAddressWrong += " " + key + " ";
+                                }
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                }
+            }
             return true;
         }
 
