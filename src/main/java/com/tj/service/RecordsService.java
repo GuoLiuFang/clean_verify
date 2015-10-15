@@ -86,7 +86,7 @@ public class RecordsService {
 
     private String fixDateFormat(String record_time) {
         int index = record_time.lastIndexOf(".");
-        return record_time.substring(0,index);
+        return record_time.substring(0, index);
     }
 
     public List<ErrorsGrep> verifyAll(List<ErrorRecords> errorRecordsList) {

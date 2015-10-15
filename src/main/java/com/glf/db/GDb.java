@@ -130,7 +130,7 @@ public class GDb {
         Connection connection = getConnection();
         try {
             Statement statement = connection.createStatement();
-            String sql = "load data infile '" + pathName + "' into " + this.properties.getProperty("insert_table") + " fields terminated by ',';";
+            String sql = "load data infile '" + pathName + "' into table " + this.properties.getProperty("insert_table") + " fields terminated by ',';";
             System.out.println("---通过文件导入----" + sql);
             statement.execute(sql);
         } catch (SQLException e) {

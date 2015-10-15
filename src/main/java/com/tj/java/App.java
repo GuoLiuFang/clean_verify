@@ -16,13 +16,15 @@ public class App {
         System.out.println("Hello World!");
         String recordDate = args[0];
         GDb gDb = GDb.getGDb();
-        String sql = gDb.getSelectSql(recordDate,"0");
+        String sql = gDb.getSelectSql(recordDate, "0");
         System.out.println("-------组装的sql是" + sql);
         RecordsService recordsService = new RecordsService();
         List<ErrorRecords> recordsList = recordsService.getRecords(gDb.getResultSet(sql));
         List<ErrorsGrep> errorsGrepList = recordsService.verifyAll(recordsList);
         GFile gFile = new GFile();
         gFile.writeFile(errorsGrepList, recordsService.getPathName());
-        gDb.insertData(errorsGrepList);
+//        gDb.insertData(errorsGrepList);
+        gDb.loadDataInfile(recordsService.getPathName());
+
     }
 }

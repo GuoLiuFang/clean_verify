@@ -143,7 +143,7 @@ public class ErrorRecords extends ErrorsGrep {
     }
 
     public String getString() {
-        return  "did=" + this.getDid() +
+        return "did=" + this.getDid() +
                 ", record_time=" + this.getRecord_time() +
                 ", ErrorRecords{" +
                 "solution_id='" + solution_id + '\'' +
