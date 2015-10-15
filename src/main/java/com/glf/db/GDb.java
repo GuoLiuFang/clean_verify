@@ -140,8 +140,12 @@ public class GDb {
     }
 
     private String composeValues(Object line) {
-
-        return "(" + line.toString() + ")";
+        String[] contentArray = line.toString().split("[,]");
+        StringBuffer result = new StringBuffer();
+        for (String element : contentArray) {
+            result.append("'").append(element).append("',");
+        }
+        return "(" + result.toString().substring(0,result.toString().length()-1) + ")";
     }
 
     public static void main(String[] args) {

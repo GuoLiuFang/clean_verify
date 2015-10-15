@@ -106,7 +106,7 @@ public class RecordsService {
                 result.add(record);
             }
             if (verifyAddress(record)) {
-                record.setError_info("'" + getWhichAddressWrong() + this.properties.getProperty("error_address"));
+                record.setError_info(getWhichAddressWrong() + this.properties.getProperty("error_address"));
                 setWhichAddressWrong("");
                 result.add(record);
             }
