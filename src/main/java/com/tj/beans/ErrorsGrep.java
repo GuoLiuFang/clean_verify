@@ -11,7 +11,7 @@ public class ErrorsGrep {
 
     @Override
     public String toString() {
-        return did + "," + record_time + "," + error_info;
+        return "'" + did + "','" + record_time + "'," + error_info;
     }
 
     public String getError_info() {

@@ -55,7 +55,8 @@ public class RecordsService {
                 ErrorRecords errorRecords = new ErrorRecords();
 
                 errorRecords.setDid(resultSet.getString(this.properties.getProperty("did")));
-                errorRecords.setRecord_time(resultSet.getString(this.properties.getProperty("record_time")));
+                String record_time = resultSet.getString(this.properties.getProperty("record_time"));
+                errorRecords.setRecord_time(fixDateFormat(record_time));
                 errorRecords.setSolution_id(resultSet.getString(this.properties.getProperty("solution_id")));
                 errorRecords.setReader(resultSet.getString(this.properties.getProperty("reader")));
                 errorRecords.setWriter(resultSet.getString(this.properties.getProperty("writer")));
@@ -83,6 +84,11 @@ public class RecordsService {
         return result;
     }
 
+    private String fixDateFormat(String record_time) {
+        int index = record_time.lastIndexOf(".");
+        return record_time.substring(0,index);
+    }
+
     public List<ErrorsGrep> verifyAll(List<ErrorRecords> errorRecordsList) {
         List<ErrorsGrep> result = new ArrayList<ErrorsGrep>();
         for (ErrorRecords record : errorRecordsList) {
@@ -100,7 +106,7 @@ public class RecordsService {
                 result.add(record);
             }
             if (verifyAddress(record)) {
-                record.setError_info("\"" + getWhichAddressWrong() + this.properties.getProperty("error_address"));
+                record.setError_info("'" + getWhichAddressWrong() + this.properties.getProperty("error_address"));
                 setWhichAddressWrong("");
                 result.add(record);
             }

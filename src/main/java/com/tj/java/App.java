@@ -23,5 +23,6 @@ public class App {
         List<ErrorsGrep> errorsGrepList = recordsService.verifyAll(recordsList);
         GFile gFile = new GFile();
         gFile.writeFile(errorsGrepList, recordsService.getPathName());
+        gDb.insertData(errorsGrepList);
     }
 }

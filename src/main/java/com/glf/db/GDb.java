@@ -2,7 +2,9 @@ package com.glf.db;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.sql.*;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -77,10 +79,10 @@ public class GDb {
         for (int i = 0; i < fieldArray.length; i++) {
             whereClause.append(" and " + this.composeFieldWithFunction(functionArray[i], fieldArray[i], parametersArray[i]) + "=" + whereVar[i]);
         }
-        for (String contion : conditionArray){
+        for (String contion : conditionArray) {
             whereClause.append(" and " + contion);
         }
-        String sql = "select " + this.properties.getProperty("fields") + " from " + this.properties.getProperty("table") + " " + whereClause + this.properties.getProperty("groupBy") + " " + this.properties.getProperty("orderBy") + " " + this.properties.getProperty("limit") + ";";
+        String sql = "select " + this.properties.getProperty("fields") + " from " + this.properties.getProperty("query_table") + " " + whereClause + this.properties.getProperty("groupBy") + " " + this.properties.getProperty("orderBy") + " " + this.properties.getProperty("limit") + ";";
         return sql;
     }
 
@@ -108,6 +110,38 @@ public class GDb {
         } else {
             return field;
         }
+    }
+
+    public void insertData(List<? extends Object> contents) {
+        Connection connection = getConnection();
+        try {
+            Statement statement = connection.createStatement();
+            for (Object line : contents) {
+                String sql = "insert " + this.properties.getProperty("insert_table") + " values" + composeValues(line) + ";";
+                System.out.println("--逐条执行的sql---" + sql);
+                statement.execute(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadDataInfile(String pathName) {
+        Connection connection = getConnection();
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "load data infile '" + pathName + "' into " + this.properties.getProperty("insert_table") + " fields terminated by ',';";
+            System.out.println("---通过文件导入----" + sql);
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private String composeValues(Object line) {
+
+        return "(" + line.toString() + ")";
     }
 
     public static void main(String[] args) {
