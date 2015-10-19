@@ -129,7 +129,7 @@ public class RecordsService {
         if (record.getCommit_creds() != null &&
                 record.getHack_point() != null &&
                 record.getPrepare_kernel_cred() != null &&
-                record.getPtmx_fops() != null &&
+                (record.getPtmx_fops_address() != null || record.getPtmx_fops() != null) &&
                 record.getPtmx_open() != null &&
                 record.getTty_fasync() != null &&
                 record.getTty_release() != null &&
@@ -189,7 +189,7 @@ public class RecordsService {
             calendar.setTime(simpleDateFormat.parse(day));
             calendar.add(Calendar.DATE, Integer.valueOf(this.properties.getProperty("dayAgo")));
             day = simpleDateFormat.format(calendar.getTime());
-//            System.out.println("----8天前是--" + day);
+            System.out.println("----7天前是--" + day);
         } catch (ParseException e) {
             e.printStackTrace();
         }

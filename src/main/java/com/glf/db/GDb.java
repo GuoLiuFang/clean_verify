@@ -173,8 +173,8 @@ public class GDb {
         try {
             Statement statement = connection.createStatement();
             String sql = "delete from " + this.properties.getProperty("insert_table") + " where date(record_time) ='" + deleteDate + "';";
-//            System.out.println("---要删除的sql语句是----" + sql);
-            statement.executeUpdate(sql);
+            System.out.println("---要删除的sql语句是----" + sql);
+            statement.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
