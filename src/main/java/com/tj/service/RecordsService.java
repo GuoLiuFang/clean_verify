@@ -9,7 +9,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -176,5 +179,20 @@ public class RecordsService {
         } else {
             return true;
         }
+    }
+
+    public String getDayAgo(String arg) {
+        String day = arg.replaceAll("[']", "");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(simpleDateFormat.parse(day));
+            calendar.add(Calendar.DATE, Integer.valueOf(this.properties.getProperty("dayAgo")));
+            day = simpleDateFormat.format(calendar.getTime());
+//            System.out.println("----8天前是--" + day);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return day;
     }
 }

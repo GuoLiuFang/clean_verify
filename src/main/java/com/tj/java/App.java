@@ -25,6 +25,8 @@ public class App {
         gFile.writeFile(errorsGrepList, recordsService.getPathName());
 //        gDb.insertData(errorsGrepList);
         gDb.loadDataInfile(recordsService.getPathName());
+        String deleteDate = recordsService.getDayAgo(args[0]);
+        gDb.deleteData(deleteDate);
 
     }
 }

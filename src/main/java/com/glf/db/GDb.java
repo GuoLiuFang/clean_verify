@@ -145,7 +145,7 @@ public class GDb {
         for (String element : contentArray) {
             result.append("'").append(element).append("',");
         }
-        return "(" + result.toString().substring(0,result.toString().length()-1) + ")";
+        return "(" + result.toString().substring(0, result.toString().length() - 1) + ")";
     }
 
     public static void main(String[] args) {
@@ -162,6 +162,19 @@ public class GDb {
                 String apil = resultSet.getString("apil");
                 System.out.println(record_time + "--------apil------" + apil);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteData(String deleteDate) {
+        Connection connection = getConnection();
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "delete from " + this.properties.getProperty("insert_table") + " where date(record_time) ='" + deleteDate + "';";
+//            System.out.println("---要删除的sql语句是----" + sql);
+            statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
