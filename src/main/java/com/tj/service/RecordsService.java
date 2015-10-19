@@ -76,7 +76,7 @@ public class RecordsService {
                 errorRecords.setSys_setresuid(resultSet.getString(this.properties.getProperty("sys_setresuid")));
 
                 result.add(errorRecords);
-                System.out.println(errorRecords.getString());
+//                System.out.println(errorRecords.getString());
             }
         } catch (SQLException e) {
             e.printStackTrace();
