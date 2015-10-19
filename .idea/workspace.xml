@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f893e222-ccc2-4746-8d2d-9236ee7121f6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/glf/db/GDb.java" afterPath="$PROJECT_DIR$/src/main/java/com/glf/db/GDb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/main/java/records.properties" afterPath="$PROJECT_DIR$/res/main/java/records.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="clean_verify.iws" />
@@ -45,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+              <caret line="76" column="124" selection-start-line="76" selection-start-column="124" selection-end-line="76" selection-end-column="124" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,8 +54,18 @@
       <file leaf-file-name="records.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/main/java/records.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24972253">
-              <caret line="15" column="25" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.4473161">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/main/java/db.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -132,8 +140,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tj/java/App.java" />
         <option value="$PROJECT_DIR$/res/main/java/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/glf/db/GDb.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java" />
         <option value="$PROJECT_DIR$/res/main/java/records.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java" />
       </list>
     </option>
   </component>
@@ -252,6 +260,52 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="clean_verify" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clean_verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -674,12 +728,12 @@
       <workItem from="1444902075783" duration="82000" />
       <workItem from="1444967110773" duration="308000" />
       <workItem from="1444968271682" duration="39000" />
-      <workItem from="1445236847029" duration="5349000" />
+      <workItem from="1445236847029" duration="5695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65979000" />
+    <option name="totallyTimeSpent" value="66325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1996" y="42" width="1916" height="1021" extended-state="0" />
@@ -702,7 +756,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34418356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14887941" sideWeight="0.49245283" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42841765" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42841765" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32831" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -972,14 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/main/java/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.083240844">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tj/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1019,10 +1065,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/main/java/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tj/service/RecordsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+          <caret line="76" column="124" selection-start-line="76" selection-start-column="124" selection-end-line="76" selection-end-column="124" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1031,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/main/java/records.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24972253">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.4473161">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
           <folding />
         </state>
       </provider>

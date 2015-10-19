@@ -74,7 +74,7 @@ public class RecordsService {
                 errorRecords.setPtmx_fops(resultSet.getString(this.properties.getProperty("address_ptmx_fops")));
                 errorRecords.setHack_point(resultSet.getString(this.properties.getProperty("address_hack_point")));
 
-                errorRecords.setPtmx_fops_address(resultSet.getString(this.properties.getProperty("ptmx_fops_address")));
+                errorRecords.setPtmx_fops_address(resultSet.getString(this.properties.getProperty("address_ptmx_fops_address")));
                 errorRecords.setHack_code(resultSet.getString(this.properties.getProperty("hack_code")));
                 errorRecords.setSys_setresuid(resultSet.getString(this.properties.getProperty("sys_setresuid")));
 
